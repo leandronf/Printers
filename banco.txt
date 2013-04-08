@@ -1,0 +1,13 @@
+create table printers(
+	id 	int	NOT NULL	AUTO_INCREMENT,
+	hostname	varchar(30),
+	macaddr		varchar(30),
+	serial		varchar(50),
+	numpat		varchar(20),
+	categoria	varchar(30),
+	valor		varchar(150),
+	timestamp	timestamp,		
+	PRIMARY KEY (id));
+
+	
+	
