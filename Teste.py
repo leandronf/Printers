@@ -23,9 +23,8 @@ for ip, model in PRINTERS.items():
         bs = BeautifulSoup(doc)
         page = bs.findAll('dd:totalimpressions')[0].getText()
         #page = bs.findAll("td")[51].getText()[16:].strip()
-       # serial = bs.findAll("td")[47].getText()[13:].strip()
         print "Hostname : ", model
-        print "Serial : ", serial
+        #print "Serial : ", serial
         print "MAC: ", ip
         print "Numero de paginas: ", page
 
@@ -42,7 +41,12 @@ for ip, model in PRINTERS.items():
         tabela = bs.find("table", id="tableDeviceDetails")
         linhas = tabela.findAll("tr")[8]
         colunas = linhas.findAll("td")[1]
-        print ip, model, " - [ONLINE] Numero de paginas: ", colunas.text.strip()
+        page = colunas.text.strip()
+        print "Hostname : ", model
+        #print "Serial : ", serial
+        print "MAC: ", ip
+        print "Numero de paginas: ", page
+
 
     if(model == 'BR8085-325'):
         url = "http://%s/main/main.html" % ip
@@ -55,14 +59,3 @@ for ip, model in PRINTERS.items():
         print "MAC: ", ip
         print "Numero de paginas: ", page
 
-
-
-if model == 'HP8100-328':
-        url = "http://%s/#hId-devInfoPage" % ip
-        doc = u.urlopen(url).read()
-        bs = BeautifulSoup(doc)
-        page = bs.findAll("table",id="appDevInfo-printerInfo-tbl-Tbl")[0].getText()
-        #page = bs.findAll("td")[51].getText()[16:].strip()
-       # serial = bs.findAll("td")[47].getText()[13:].strip()
-
-        print page
