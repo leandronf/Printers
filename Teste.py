@@ -22,13 +22,10 @@ for ip, model in PRINTERS.items():
         doc = u.urlopen(url).read()
         bs = BeautifulSoup(doc)
         page = bs.findAll('dd:totalimpressions')[0].getText()
-        #page = bs.findAll("td")[51].getText()[16:].strip()
         print "Hostname : ", model
         #print "Serial : ", serial
         print "MAC: ", ip
         print "Numero de paginas: ", page
-
-        #print ip, model, " - [ONLINE] Numero de paginas: ", page
 
         #todo: split in two tables (models and page counters)
         #query = "INSERT INTO printers (hostname, macaddr,serial, numpat, numpag) VALUES ('%s', '%s', '%s', '%s' ,'%s')" % ( model,"2c-76-8a-cd-95-f5","serial","018.xxxxxx",page)
