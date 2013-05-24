@@ -5,14 +5,15 @@ import MySQLdb
 import config
 
 # Gera a string de conexao ex.: seu host, seu usuario, sua senha e seu db
-db = MySQLdb.connect(host, user, passwd, db)
-con = db.cursor()
+
+config.Config.banco()
 
 PRINTERS = {
     '10.233.32.8': 'HP8100-328',
 	'10.233.32.5': 'BR8085-325',
     '10.233.32.3': 'HP8500-323',
 }
+
 
 
 for ip, model in PRINTERS.items():
