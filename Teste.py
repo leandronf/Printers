@@ -10,7 +10,7 @@ user="printers"
 passwd="KV7MmRxEXDMR5pVE"
 db="printers"
 
-db = MySQLdb.connect(host, user, passwd, db)
+db = MySQLdb.connect(host=host, user=user, passwd=passwd, db=db)
 con = db.cursor()
 
 PRINTERS = {
