@@ -8,6 +8,8 @@ create table printers(
 	valor		varchar(150),
 	timestamp	timestamp,		
 	PRIMARY KEY (id));
+	
+	
 
 	
 	
