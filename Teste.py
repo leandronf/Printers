@@ -15,13 +15,6 @@ PRINTERS = {
 }
 
 
-def func(param, param2=None):
-    """
-    Esta função faz isso..
-    """
-    print param
-
-
 for ip, model in PRINTERS.items():
     print "-------------------------------------------------"
     if model == 'HP8100-328':
