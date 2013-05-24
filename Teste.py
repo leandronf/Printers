@@ -2,11 +2,16 @@ from bs4 import BeautifulSoup
 import urllib2 as u
 import MySQLdb
 
-import config
 
 # Gera a string de conexao ex.: seu host, seu usuario, sua senha e seu db
 
-config.Config.banco()
+host="db1.set.eesc.usp.br"
+user="printers"
+passwd="KV7MmRxEXDMR5pVE"
+db="printers"
+
+db = MySQLdb.connect(host, user, passwd, db)
+con = db.cursor()
 
 PRINTERS = {
     '10.233.32.8': 'HP8100-328',
