@@ -4,7 +4,7 @@ import MySQLdb
 
 
 # Gera a string de conexao ex.: seu host, seu usuario, sua senha e seu db
-
+#
 host="db1.set.eesc.usp.br"
 user="printers"
 passwd="KV7MmRxEXDMR5pVE"
@@ -16,7 +16,7 @@ con = db.cursor()
 PRINTERS = {
     '10.233.32.8': 'HP8100-328',
 	'10.233.32.5': 'BR8085-325',
-    '10.233.32.3': 'HP8500-323',
+    #'10.233.32.3': 'HP8500-323',
 }
 
 
@@ -29,8 +29,9 @@ for ip, model in PRINTERS.items():
         bs = BeautifulSoup(doc)
         page = bs.findAll('dd:totalimpressions')[0].getText()
         print ip, model, " - [ONLINE] Numero de paginas: ", page
+
         #todo: split in two tables (models and page counters)
-        query = "INSERT INTO printers (hostname, macaddr,serial, numpat, numpag) VALUES ('%s', '%s', '%s', '%s' ,'%s')" % ( model,"2c-76-8a-cd-95-f5","serial","018.xxxxxx",page)
+        query = "INSERT INTO `printers` (`hostname`, `macaddr`, `serial`, `numpat`, `categoria`, `valor`) VALUES ('%s', '%s', '%s', '%s' ,'%s')" % ( model,"2c-76-8a-cd-95-f5","serial","018.xxxxxx","",page)
         con.execute( query )
 
     if model == 'HP8500-323':
