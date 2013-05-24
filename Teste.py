@@ -2,7 +2,7 @@ from bs4 import BeautifulSoup
 import urllib2 as u
 import MySQLdb
 
-include('config.py') 
+import config
 
 # Gera a string de conexao ex.: seu host, seu usuario, sua senha e seu db
 db = MySQLdb.connect(host, user, passwd, db)
