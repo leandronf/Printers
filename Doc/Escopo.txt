@@ -1,0 +1,6 @@
+O sistema deve cadastrar a impressora por (serial, nome REDE, MAC ADDRS, IPda rede(mesmo do SIBILA))
+a impressoras possuem manutenções periodicas como troca de cartucho, troca de cabeça, manutenção de cabeça de impressao, troca de cilindro.
+a contagem de impressao deve contar o nro de paginas impressas por dia.
+
+
+ 

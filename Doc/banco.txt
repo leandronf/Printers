@@ -1,0 +1,36 @@
+create database printercheck;
+use printercheck;
+
+create table printer(
+	idprinter int NOT NULL AUTO_INCREMENT,
+	hostname varchar(30),
+	macaddr varchar(30),
+	serial varchar(50),
+	numpat varchar(20),
+	categoria varchar(30),
+	PRIMARY KEY(idprinter));
+	
+	
+Create table contador_impressao(
+	idcontador int NOT NULL AUTO_INCREMENT,
+	idprinter int,
+	data timestamp,
+	valor varchar(20),
+	PRIMARY KEY (idcontador),
+	FOREIGN KEY (idprinter) references printer(idprinter));
+	
+create table manutencao(
+	idmanutencao int NOT NULL AUTO_INCREMENT,
+	idprinter int,
+	data timestamp,
+	trocatinta int,
+	trocacabeca int,
+	trocacilindro int,
+	manutcabeca int,
+	PRIMARY KEY (idmanutencao),
+	FOREIGN KEY (idprinter) references printer(idprinter));
+	
+	
+
+	
+	

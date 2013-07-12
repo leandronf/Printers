@@ -1,6 +1,6 @@
 from bs4 import BeautifulSoup
 import urllib2 as u
-import MySQLdb
+
 
 
 # Gera a string de conexao ex.: seu host, seu usuario, sua senha e seu db
@@ -10,8 +10,8 @@ user="printers"
 passwd="KV7MmRxEXDMR5pVE"
 db="printers"
 
-db = MySQLdb.connect(host=host, user=user, passwd=passwd, db=db)
-con = db.cursor()
+#db = MySQLdb.connect(host=host, user=user, passwd=passwd, db=db)
+#con = db.cursor()
 
 PRINTERS = {
     '10.233.32.8': 'HP8100-328',
@@ -31,8 +31,8 @@ for ip, model in PRINTERS.items():
         print ip, model, " - [ONLINE] Numero de paginas: ", page
 
         #todo: split in two tables (models and page counters)
-        query = "INSERT INTO `printers` (`hostname`, `macaddr`, `serial`, `numpat`, `categoria`, `valor`) VALUES ('%s', '%s', '%s', '%s' ,'%s')" % ( model,"2c-76-8a-cd-95-f5","serial","018.xxxxxx","",page)
-        con.execute( query )
+        #query = "INSERT INTO `printers` (`hostname`, `macaddr`, `serial`, `numpat`, `categoria`, `valor`) VALUES ('%s', '%s', '%s', '%s' ,'%s')" % ( model,"2c-76-8a-cd-95-f5","serial","018.xxxxxx","",page)
+        #con.execute( query )
 
     if model == 'HP8500-323':
         url = "http://%s/index.htm?cat=info&page=printerInfo" % ip
